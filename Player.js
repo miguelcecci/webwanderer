@@ -9,7 +9,7 @@ function Player(){
   this.show = function(){
     fill(190,210,210);
     stroke(190,210,210);
-    if(chunk.xspeed != 0 || chunk.yspeed != 0){
+    if(map.xspeed != 0 || map.yspeed != 0){
         if(this.leganimation <= 20){
           rect(400,400,7,10);
           rect(400-7,390,7,10);
