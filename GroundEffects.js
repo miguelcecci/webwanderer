@@ -1,5 +1,5 @@
 function GroundEffects(x, y){
-  this.color = random(50, 100);
+  this.color = random(10, 50);
   this.x = x+random(5, 795);
   this.y = y+random(5, 795);
   this.size = random(2, 15);
