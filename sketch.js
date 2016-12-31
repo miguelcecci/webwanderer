@@ -1,5 +1,7 @@
 var map;
 var jack;
+var hud;
+var temp;
 
 function setup() {
   createCanvas(800, 800);
@@ -7,6 +9,7 @@ function setup() {
   yw=windowHeight;
   map = new GlobalMap();
   jack = new Player();
+  hud = new PlayerHud();
 }
 
 function draw() {
@@ -15,6 +18,7 @@ function draw() {
   map.update();
   map.show();
   jack.show();
+  hud.show();
 
 }
 function keyPressed(){
@@ -33,6 +37,15 @@ function keyPressed(){
   if (keyCode == SHIFT){
     map.setsprint(2);
   }
+  if (keyCode == 65){
+    jack.turn(1);
+  }
+  if (keyCode == 83){
+    jack.turn(-1);
+  }
+  if (keyCode == 68){
+    hud.shot(jack.getAngle());
+  }
 }
 function keyReleased(){
   if(keyCode === UP_ARROW){
@@ -49,5 +62,12 @@ function keyReleased(){
 
   if (keyCode == SHIFT){
     map.setsprint(1);
+  }
+
+  if (keyCode == 65){
+    jack.turn(0);
+  }
+  if (keyCode == 83){
+    jack.turn(0);
   }
 }
