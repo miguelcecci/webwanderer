@@ -35,6 +35,9 @@ function GlobalMap(){
     for (var i = 0; i < 9; i++) {
       chunk[i].show();
     }
+    for (var i = 0; i < 9; i++) {
+      chunk[i].enemyShow();
+    }
     // print("The value ---- " + chunk[5].getyposition()+ "-" + chunk[5].getxposition());
   }
 

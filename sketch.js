@@ -1,7 +1,6 @@
 var map;
 var jack;
 var hud;
-var temp;
 
 function setup() {
   createCanvas(800, 800);
@@ -13,9 +12,9 @@ function setup() {
 }
 
 function draw() {
+  map.update();
   background(255,0,0);
   fill(100,150,100);
-  map.update();
   map.show();
   jack.show();
   hud.show();
