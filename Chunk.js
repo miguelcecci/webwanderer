@@ -4,10 +4,11 @@ function Chunk(x, y, size){
   this.y = y;
   this.size = size;
   this.ue = [];
+  this.zombiePerChunk = random(4, round(score/1000));
   this.zombieSpawn = [];
   this.item = 1;
 
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < this.zombiePerChunk; i++) {
     this.zombieSpawn[i] = new Zombie(this.x, this.y);
   }
   for (var i = 0; i < 8; i++) {
@@ -30,14 +31,14 @@ function Chunk(x, y, size){
     for (var i = 0; i < 8; i++) {
       this.ue[i].update(xs, ys, sprint);
     }
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < this.zombiePerChunk; i++) {
       this.zombieSpawn[i].update(xs, ys, sprint);
     }
   }
 
   this.show = function(){
     fill(100,150,100);
-    stroke(0);
+    stroke(100,150,100);
     rect(this.x,this.y, this.size, this.size);
     for (var i = 0; i < 8; i++) {
       this.ue[i].show();
@@ -45,7 +46,7 @@ function Chunk(x, y, size){
     this.item.show();
   }
   this.enemyShow = function(){
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < this.zombiePerChunk; i++) {
       this.zombieSpawn[i].show();
     }
   }

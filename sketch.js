@@ -1,6 +1,9 @@
 var map;
 var jack;
 var hud;
+var game = true;
+var score = 0;
+var auxx = 0;
 
 function setup() {
   createCanvas(800, 800);
@@ -12,12 +15,22 @@ function setup() {
 }
 
 function draw() {
-  map.update();
-  background(255,0,0);
-  fill(100,150,100);
-  map.show();
-  jack.show();
-  hud.show();
+  if(game){
+    map.update();
+    background(100,150,100);
+    fill(100,150,100);
+    map.show();
+    jack.show();
+    hud.show();
+  }else{
+    background(random(1,30));
+    if(auxx == 2){
+      fill(200);
+      text(score,390,390);
+      auxx = 0;
+    }
+    auxx++;
+  }
 
 }
 function keyPressed(){

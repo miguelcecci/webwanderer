@@ -7,10 +7,22 @@ function PlayerHud(){
     status.ammo = 10;
   }
 
+  this.verifyShoot = function(x, y, size){
+    if(aux != 0){
+      for(var i = 20; i < proj.range; i++){
+        if(proj.x[i] > x && proj.x[i] < x+size && proj.y[i] > y && proj.y[i] < y+size){
+          score = score + 1000;
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
   this.shot = function(angle){
     if(status.ammo != 0){
       status.ammo--;
-      aux = 3;
+      aux = 2;
       proj = new Bullet(angle);
     }
   }

@@ -46,6 +46,7 @@ function GlobalMap(){
       chunk[6] = chunk[3];
       chunk[7] = chunk[4];
       chunk[8] = chunk[5];
+
       chunk[4] = chunk[1];
       chunk[3] = chunk[0];
       chunk[5] = chunk[2];
@@ -53,6 +54,48 @@ function GlobalMap(){
       chunk[0] = new Chunk(chunk[3].getxposition(), -800, this.chunksize)
       chunk[1] = new Chunk(chunk[4].getxposition(), -800, this.chunksize)
       chunk[2] = new Chunk(chunk[5].getxposition(), -800, this.chunksize)
+      this.show();
+    }
+    if(chunk[4].getyposition() <= -800 ){
+      chunk[1] = chunk[4];
+      chunk[0] = chunk[3];
+      chunk[2] = chunk[5];
+
+      chunk[3] = chunk[6];
+      chunk[4] = chunk[7];
+      chunk[5] = chunk[8];
+
+      chunk[6] = new Chunk(chunk[3].getxposition(), 800, this.chunksize)
+      chunk[7] = new Chunk(chunk[4].getxposition(), 800, this.chunksize)
+      chunk[8] = new Chunk(chunk[5].getxposition(), 800, this.chunksize)
+      this.show();
+    }
+    if(chunk[4].getxposition() <= -800 ){
+      chunk[0] = chunk[1];
+      chunk[3] = chunk[4];
+      chunk[6] = chunk[7];
+
+      chunk[1] = chunk[2];
+      chunk[4] = chunk[5];
+      chunk[7] = chunk[8];
+
+      chunk[2] = new Chunk(800, chunk[1].getyposition(), this.chunksize)
+      chunk[5] = new Chunk(800, chunk[4].getyposition(), this.chunksize)
+      chunk[8] = new Chunk(800, chunk[7].getyposition(), this.chunksize)
+      this.show();
+    }
+    if(chunk[4].getxposition() >= 800 ){
+      chunk[2] = chunk[1];
+      chunk[5] = chunk[4];
+      chunk[8] = chunk[7];
+
+      chunk[1] = chunk[0];
+      chunk[4] = chunk[3];
+      chunk[7] = chunk[6];
+
+      chunk[0] = new Chunk(-800, chunk[1].getyposition(), this.chunksize)
+      chunk[3] = new Chunk(-800, chunk[4].getyposition(), this.chunksize)
+      chunk[6] = new Chunk(-800, chunk[7].getyposition(), this.chunksize)
       this.show();
     }
   }
